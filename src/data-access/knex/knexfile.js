@@ -8,11 +8,12 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'greenlife',
-      user:    'iroda',
+      connectionString: config.db.DATABASE_URL,
+      // database: config.db.name,
+      // user:    config.db.user,
       // password: config.db.password.toString(),
-      password:'iroda0105',
-      port: config.db.port,
+      // password:'DVbjOYPk8b83lTEq',
+      // port: config.db.port,
       ssl: { rejectUnauthorized: false },
     },
     pool: {
@@ -20,18 +21,19 @@ module.exports = {
       max: 10
     },
     migrations: {
-       directory: 'migrations'
+       directory: 'src/data-access/knex/migrations'
     }
   },
 
   test: {
     client: 'postgresql',
     connection: {
-      database: config.db.name,
-      user:    config.db.user,
+      connectionString: config.db.DATABASE_URL,
+      // database: config.db.name,
+      // user:    config.db.user,
       // password: config.db.password.toString(),
-      password:'iroda0105',
-      port: config.db.port,
+      // password:'DVbjOYPk8b83lTEq',
+      // port: config.db.port,
       ssl: { rejectUnauthorized: false },
     },
     pool: {
@@ -39,26 +41,28 @@ module.exports = {
       max: 10
     },
     migrations: {
-       directory: 'migrations'
+       directory: 'src/data-access/knex/migrations'
     }
   },
 
   production: {
     client: 'postgresql',
     connection: {
-      database: config.db.name,
-      user:    config.db.user,
-      // password: config.db.password.toString(),
-      password:'iroda0105',
-      port: config.db.port,
-      ssl: { rejectUnauthorized: false }
+      // database: config.db.name,
+      // user:    config.db.user,
+      // // password: config.db.password.toString(),
+      // password:'DVbjOYPk8b83lTEq',
+      // // port: config.db.port,
+      // ssl: { rejectUnauthorized: false }
+      connectionString: config.db.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      directory: 'migrations'
+      directory: 'src/data-access/knex/migrations'
     }
   }
 
